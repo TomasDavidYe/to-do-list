@@ -4,12 +4,12 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<button id = "dummyRedirectButton" (click) = "redirectToDummyComponent()">Dummy Component</button>
-<button id = "dummyClickButton" (click) = "plus1()">Click me!!!</button>
-<button id = "run-method-button" (click) = "run()">Run!</button>
-<h2>Number of clicks = {{points}}</h2>
-<h2>Hello there</h2>
-<router-outlet></router-outlet>
 
+<div class="center-div">
+<button id = "create-list-button" (click) = "createList()">Create a To-Do List</button>
+</div>
+<div>
+<router-outlet></router-outlet>
+</div>
 
 

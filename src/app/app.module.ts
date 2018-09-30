@@ -1,25 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Injector } from '@angular/core';
-
+import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { DummyComponent } from './dummy/dummy.component';
-import { Routes, Router, RouterModule } from '../../node_modules/@angular/router';
+import { Routes, RouterModule } from '../../node_modules/@angular/router';
 import { WindowComponent } from './window/window.component';
+import { CreateComponent } from './create/create.component';
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes : Routes = [
-  {path: 'home', component : AppComponent},
-  {path: 'dummy', component : DummyComponent}
+  {path: 'home', component : HomeComponent},
+  {path: 'create', component: CreateComponent},
+  {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    DummyComponent,
-    WindowComponent
+    WindowComponent,
+    CreateComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
