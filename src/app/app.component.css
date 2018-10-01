@@ -1,6 +1,9 @@
-.center-div{
+.buttons-div{
     text-align: center;
 }
-#create-list-button{
+
+button{
     color: brown
+
 }
+

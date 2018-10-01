@@ -19,8 +19,11 @@ export class CreateComponent implements OnInit {
   }
 
   submitList(): void{
-    console.log("submited name = ", this.inputList.name)
+    console.log("storing in database this object: ", this.inputList)
+    
   }
+
+
 
 
 

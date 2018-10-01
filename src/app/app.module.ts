@@ -6,10 +6,12 @@ import { WindowComponent } from './window/window.component';
 import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { ListComponent } from './list/list.component';
 
 const appRoutes : Routes = [
   {path: 'home', component : HomeComponent},
   {path: 'create', component: CreateComponent},
+  {path: 'list', component: ListComponent},
   {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ]
 
@@ -18,7 +20,8 @@ const appRoutes : Routes = [
     AppComponent,
     WindowComponent,
     CreateComponent,
-    HomeComponent
+    HomeComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
