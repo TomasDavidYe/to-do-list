@@ -33,7 +33,17 @@ export class AppComponent {
 
 
 export class List{
-  name: string
+  name: string;
+  tasks: Task[];
+}
+
+export class Task{
+  constructor(name){
+    this.name = name;
+    this.done = false;
+  }
+  name: string;
+  done: boolean;
 }
 
 

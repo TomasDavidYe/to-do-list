@@ -1,9 +1,29 @@
 
 <div id="create-form">
 <p>
-  <input type="text" placeholder="ENTER NAME" [(ngModel)]="inputList.name">
+  <input type="text" placeholder="ENTER LIST NAME" [(ngModel)]="inputList.name">
+</p>
+<div id="space-for-task-inputs">
+    <p *ngIf="isTaskInputDisplayed(1)">
+      <input type="text" placeholder="ENTER TASK 1">
+    </p>
+    <p *ngIf="isTaskInputDisplayed(2)">
+        <input type="text" placeholder="ENTER TASK 2">
+    </p>
+    <p *ngIf="isTaskInputDisplayed(3)">
+        <input type="text" placeholder="ENTER TASK 3">
+    </p>
+    <p *ngIf="isTaskInputDisplayed(4)">
+        <input type="text" placeholder="ENTER TASK 4">
+    </p>
+    <p *ngIf="isTaskInputDisplayed(5)">
+        <input type="text" placeholder="ENTER TASK 5">
+    </p>
+</div>
+<p>
+    <button (click)="addTaskInput()">Add task</button>
 </p>
 <p>
-  <button (click)="submitList()">Submit</button>
+    <button (click)="submitList()">Submit</button>
 </p>
 </div>
