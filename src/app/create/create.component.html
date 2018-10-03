@@ -4,20 +4,8 @@
   <input type="text" placeholder="ENTER LIST NAME" [(ngModel)]="inputList.name">
 </p>
 <div id="space-for-task-inputs">
-    <p *ngIf="isTaskInputDisplayed(1)">
-      <input type="text" placeholder="ENTER TASK 1">
-    </p>
-    <p *ngIf="isTaskInputDisplayed(2)">
-        <input type="text" placeholder="ENTER TASK 2">
-    </p>
-    <p *ngIf="isTaskInputDisplayed(3)">
-        <input type="text" placeholder="ENTER TASK 3">
-    </p>
-    <p *ngIf="isTaskInputDisplayed(4)">
-        <input type="text" placeholder="ENTER TASK 4">
-    </p>
-    <p *ngIf="isTaskInputDisplayed(5)">
-        <input type="text" placeholder="ENTER TASK 5">
+    <p *ngFor="let task of inputList.tasks; index as i">
+      <input type="text" placeholder="ENTER TASK {{i+1}}" [(ngModel)]="task.name">
     </p>
 </div>
 <p>

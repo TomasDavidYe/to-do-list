@@ -10,6 +10,8 @@ export class CreateComponent implements OnInit {
 
   inputList: List;
   numOfTasks: number = 0;
+  
+   
 
   constructor() { }
 
@@ -22,22 +24,26 @@ export class CreateComponent implements OnInit {
 
 
   addTaskInput(): void{
-    this.numOfTasks++;
-    console.log("num of tasks is ", this.numOfTasks)
+    this.inputList.tasks.push(new Task());
+    console.log("num of tasks is ", this.inputList.tasks.length)
+
   }
 
   submitList(): void{
+    if(this.isInputValid()){
     console.log("storing in database this object: ", this.inputList)
+    } else{
+      alert("list contains empty values")
+    }
     
   }
 
-  isTaskInputDisplayed(index: number): boolean{
-    return (this.numOfTasks >= index)
+  isInputValid(): boolean{
+    let result = true;
+    return result;
   }
 
-  isAddInputButtonDisplayed(): boolean{
-    return (this.numOfTasks < 5)
-  }
+ 
 
 
 

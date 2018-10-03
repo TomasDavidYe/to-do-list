@@ -38,8 +38,8 @@ export class List{
 }
 
 export class Task{
-  constructor(name){
-    this.name = name;
+  constructor(){
+    this.name = null;
     this.done = false;
   }
   name: string;
