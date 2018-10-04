@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { List, Task } from '../app.component'
+import { List, Task } from '../app.component';
+import { ListService } from '../services/list.service'
 
 @Component({
   selector: 'app-create',
@@ -13,34 +14,44 @@ export class CreateComponent implements OnInit {
   
    
 
-  constructor() { }
+  constructor(private listService: ListService) { }
 
   ngOnInit() {
-    this.inputList = {
-      name: '',
-      tasks: []
-    }
+    this.inputList = this.getEmptyList();
   }
 
 
   addTaskInput(): void{
     this.inputList.tasks.push(new Task());
     console.log("num of tasks is ", this.inputList.tasks.length)
-
   }
 
   submitList(): void{
     if(this.isInputValid()){
     console.log("storing in database this object: ", this.inputList)
+    let lists: List[] = this.listService.getLists() ? this.listService.getLists() : []
+    lists.push(this.inputList);
+    this.listService.storeLists(lists);
+    this.inputList = this.getEmptyList();
+    alert("List successfuly added")
     } else{
-      alert("list contains empty values")
-    }
-    
+      alert("Please fill in all of the empty values")
+    }    
   }
 
+  getEmptyList(): List{
+    return {
+      name: '',
+      tasks: []
+    }
+  }
+ 
+
+
   isInputValid(): boolean{
-    let result = true;
-    return result;
+    if(!this.inputList.name) return false;
+    for(let task of this.inputList.tasks) if (!task.name) return false;
+    return true;
   }
 
  
