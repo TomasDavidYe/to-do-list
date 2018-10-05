@@ -33,17 +33,36 @@ export class AppComponent {
 
 
 export class List{
+  constructor(){
+    this.name = '';
+    this.tasks = [];
+  }
   name: string;
   tasks: Task[];
+
+  public getNumOfTasks(): number{
+    return this.tasks.length
+  }
+  public getNumOfCompletedTasks(): number{
+    return this.tasks.filter(task => task.done).length
+  }
+
 }
 
 export class Task{
   constructor(){
     this.name = null;
-    this.done = false;
+    this.reset();
   }
   name: string;
   done: boolean;
+
+  complete(): void{
+    this.done = true;
+  }
+  reset(): void{
+    this.done = false;
+  }
 }
 
 

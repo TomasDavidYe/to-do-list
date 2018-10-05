@@ -40,10 +40,7 @@ export class CreateComponent implements OnInit {
   }
 
   getEmptyList(): List{
-    return {
-      name: '',
-      tasks: []
-    }
+    return new List()
   }
  
 

@@ -1,3 +1,16 @@
 <div id="list-div">
-  this is where the lists are to be shown
+    <table style="width:100%">
+      <tr>
+        <th>List name</th>
+        <th>Tasks</th>
+        <th>Completed</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let list of lists">
+        <td>{{list.name}}</td>
+        <td>{{list.tasks.length}}</td>
+        <td></td>
+        <td><button>Remove</button></td>
+      </tr>
+    </table>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ListService } from '../services/list.service'
+import { ListService } from '../services/list.service';
+import { List } from '../app.component'
 
 @Component({
   selector: 'app-list',
@@ -8,13 +9,12 @@ import { ListService } from '../services/list.service'
 })
 export class ListComponent implements OnInit {
 
+  lists: List[]
+
   constructor(private listService: ListService) { }
 
   ngOnInit() {
-    console.log("LIST INIT")
-    let lists = this.listService.getLists();
-    if(lists)lists.forEach((list, index) => console.log("This is list number ",index,"  ",list))
-    else console.log("no lists")
+    this.lists = this.listService.getLists();    
   }
 
 }
