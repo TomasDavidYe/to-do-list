@@ -40,7 +40,11 @@ export class CreateComponent implements OnInit {
   }
 
   getEmptyList(): List{
-    return new List()
+    let emptyData = {
+      name: '',
+      tasks: []
+    }
+    return new List(emptyData)
   }
  
 

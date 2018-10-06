@@ -17,4 +17,11 @@ export class ListComponent implements OnInit {
     this.lists = this.listService.getLists();    
   }
 
+  remove(name: string): void{
+    console.log("removing list ", name)
+  }
+
+
+  
+
 }

@@ -25,17 +25,16 @@ export class AppComponent {
 
   viewLists(): void{
     this.router.navigate(['/list'])
-  }
-
- 
+  } 
 }
 
 
 
 export class List{
-  constructor(){
-    this.name = '';
-    this.tasks = [];
+  constructor(data){
+    Object.keys(data).forEach( key => {
+      this[key] = data[key]
+    })
   }
   name: string;
   tasks: Task[];
@@ -64,5 +63,3 @@ export class Task{
     this.done = false;
   }
 }
-
-

@@ -8,9 +8,9 @@
       </tr>
       <tr *ngFor="let list of lists">
         <td>{{list.name}}</td>
-        <td>{{list.tasks.length}}</td>
-        <td></td>
-        <td><button>Remove</button></td>
+        <td>{{list.getNumOfTasks()}}</td>
+        <td>{{list.getNumOfCompletedTasks()}}</td>
+        <td><button (click) = "remove(list.name)">Remove</button></td>
       </tr>
     </table>
 </div>

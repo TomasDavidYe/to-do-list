@@ -9,9 +9,13 @@ export class ListService {
   constructor() { }
 
 
-  getLists(): List[]{
-      let storage = localStorage.getItem('lists');
-      return JSON.parse(storage) as List[];
+  getLists(): List[]{ 
+      let storage =  JSON.parse(localStorage.getItem('lists')) as List[]
+      let result: List[] = [] as List[]
+      storage.forEach(list => {
+        result.push(new List(list))
+      })
+      return result
   }
 
   storeLists(lists: List[]): void{
