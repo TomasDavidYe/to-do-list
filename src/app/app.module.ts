@@ -7,7 +7,7 @@ import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
-import { ListService } from './services/list.service'
+import { ListService } from './services/list.service';
 
 const appRoutes : Routes = [
   {path: 'home', component : HomeComponent},
@@ -22,7 +22,8 @@ const appRoutes : Routes = [
     WindowComponent,
     CreateComponent,
     HomeComponent,
-    ListComponent
+    ListComponent,
+   
   ],
   imports: [
     BrowserModule,

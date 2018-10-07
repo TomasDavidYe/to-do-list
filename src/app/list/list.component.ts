@@ -19,9 +19,6 @@ export class ListComponent implements OnInit {
 
   remove(name: string): void{
     console.log("removing list ", name)
-  }
-
-
-  
+  } 
 
 }

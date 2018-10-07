@@ -10,7 +10,8 @@ export class ListService {
 
 
   getLists(): List[]{ 
-      let storage =  JSON.parse(localStorage.getItem('lists')) as List[]
+      let storage =  JSON.parse(localStorage.getItem('lists'));
+      storage = storage ? storage : []
       let result: List[] = [] as List[]
       storage.forEach(list => {
         result.push(new List(list))
