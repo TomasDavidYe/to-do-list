@@ -1,13 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    {{ title }}!
-  </h1>
 </div>
 <div class="buttons-div">
-    <button id = "home-button" (click) = "home()">Home</button>
-    <button id = "create-list-button" (click) = "createList()">Create a To-Do List</button>
-    <button id = "create-list-button" (click) = "viewLists()">View Lists</button>
+    <button class="navbar-button"  (click) = "home()">Home</button>
+    <button class="navbar-button"  (click) = "createList()">Create a list</button>
+    <button  class="navbar-button" (click) = "viewLists()">View lists</button>
 </div>
 <div>
 <router-outlet></router-outlet>

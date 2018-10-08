@@ -6,11 +6,11 @@
         <th>Completed</th>
         <th></th>
       </tr>
-      <tr *ngFor="let list of lists">
+      <tr *ngFor="let list of lists ; index as i">
         <td>{{list.name}}</td>
         <td>{{list.getNumOfTasks()}}</td>
         <td>{{list.getNumOfCompletedTasks()}}</td>
-        <td><button (click) = "remove(list.name)">Remove</button></td>
+        <td><button (click) = "remove(i)">Remove</button></td>
       </tr>
     </table>
 </div>

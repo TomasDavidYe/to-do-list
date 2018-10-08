@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from '../services/list.service';
-import { List } from '../app.component'
+import { List } from '../objects/objects'
 
 @Component({
   selector: 'app-list',
@@ -17,8 +17,9 @@ export class ListComponent implements OnInit {
     this.lists = this.listService.getLists();    
   }
 
-  remove(name: string): void{
-    console.log("removing list ", name)
+  remove(index: number): void{
+    this.lists = this.lists.filter((value, i) => i !== index);
+    this.listService.storeLists(this.lists)
   } 
 
 }
