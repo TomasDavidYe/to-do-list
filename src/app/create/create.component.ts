@@ -29,7 +29,7 @@ export class CreateComponent implements OnInit {
   submitList(): void{
     if(this.isInputValid()){
     console.log("storing in database this object: ", this.inputList)
-    let lists: List[] = this.listService.getLists() ? this.listService.getLists() : []
+    let lists: List[] = this.listService.getAllLists() ? this.listService.getAllLists() : []
     lists.push(this.inputList);
     this.listService.storeLists(lists);
     this.inputList = this.getEmptyList();
