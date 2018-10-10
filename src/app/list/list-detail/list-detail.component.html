@@ -1,4 +1,8 @@
-<p>
-  {{list.name}}
-</p>
-<button (click)="back()">Back</button>
+<div id="details-div">
+  <h2 id="list-name">{{list.name}}</h2>
+  <div *ngFor="let task of list.tasks">
+    <span class="task-name">{{task.name}}</span>
+    <input class="task-checker" type="checkbox" [checked]="task.done" (change)="task.done = !task.done">
+  </div>
+  <button class="list-detail-button" (click)="save()">Save</button> <button class="list-detail-button" (click)="back()">Back</button>
+</div>

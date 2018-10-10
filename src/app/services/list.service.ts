@@ -9,9 +9,20 @@ export class ListService {
   constructor() { }
 
 
-  getAllLists(): List[]{ 
-      let storage =  JSON.parse(localStorage.getItem('lists'));
-      storage = storage ? storage : [];
+  getStorage(){
+    let storage =  JSON.parse(localStorage.getItem('lists'));
+    storage = storage ? storage : [];
+    return storage;
+  }
+
+  updateList(index: number, list: List){
+    let lists = this.getAllLists();
+    lists[index] = list;
+    this.storeLists(lists)
+  }
+
+  getAllLists(): List[]{
+      let storage = this.getStorage(); 
       let result: List[] = [] as List[];
       storage.forEach(list => {
         result.push(new List(list))
@@ -20,8 +31,7 @@ export class ListService {
   }
 
   getList(index: number): List{
-    let storage = JSON.parse(localStorage.getItem('lists'))
-    storage = storage ? storage : [];
+    let storage = this.getStorage(); 
     return new List(storage.find((value, i)=> i === index))
   }
 
