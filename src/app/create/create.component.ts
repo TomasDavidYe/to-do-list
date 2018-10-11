@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { List, Task } from '../objects/objects';
-import { ListService } from '../services/list.service'
+import { ListService } from '../services/list.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-create',
@@ -14,7 +15,7 @@ export class CreateComponent implements OnInit {
   
    
 
-  constructor(private listService: ListService) { }
+  constructor(private listService: ListService, private router: Router) { }
 
   ngOnInit() {
     this.inputList = this.getEmptyList();
@@ -32,11 +33,16 @@ export class CreateComponent implements OnInit {
     let lists: List[] = this.listService.getAllLists() ? this.listService.getAllLists() : []
     lists.push(this.inputList);
     this.listService.storeLists(lists);
+    alert("List "+ this.inputList.name + " successfuly added")
     this.inputList = this.getEmptyList();
-    alert("List successfuly added")
+    this.goToLists();
     } else{
       alert("Please fill in all of the empty values")
     }    
+  }
+
+  goToLists(){
+    this.router.navigate(['/list', {new_list: true}])
   }
 
   getEmptyList(): List{

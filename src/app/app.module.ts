@@ -10,6 +10,7 @@ import { ListComponent } from './list/list-table/list.component';
 import { ListService } from './services/list.service';
 import { ListModule } from './list/list.module';
 import { ListDetailComponent } from './list/list-detail/list-detail.component';
+import { DisplayHtmlPipe } from './list/pipes';
 
 const appRoutes : Routes = [
   {path: 'home', component : HomeComponent},
@@ -26,7 +27,8 @@ const appRoutes : Routes = [
     CreateComponent,
     HomeComponent,
     ListComponent,
-    ListDetailComponent
+    ListDetailComponent,
+    DisplayHtmlPipe,
   ],
   imports: [
     BrowserModule,

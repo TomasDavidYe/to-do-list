@@ -7,8 +7,8 @@
         <th></th>
       </tr>
       <tr *ngFor="let list of lists ; index as i">
-        <td (click)="goToList(i)" ><button class="link">{{list.name}}</button></td>
-        <td>{{list.getNumOfTasks()}}</td>
+        <td (click)="goToList(i)" ><button class="link" [innerHtml]="list.name | displayHtml: shouldHighlight(i)"></button></td>
+        <td >{{list.getNumOfTasks()}}</td>
         <td>{{list.getNumOfCompletedTasks()}}</td>
         <td><button (click) = "goToList(i)">Details</button></td>
         <td><button (click) = "remove(i)">Remove</button></td>

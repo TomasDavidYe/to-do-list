@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from '../../services/list.service';
 import { List } from '../../objects/objects'
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -12,10 +12,14 @@ export class ListComponent implements OnInit {
 
   lists: List[]
 
-  constructor(private listService: ListService, private router: Router) { }
+  constructor(private listService: ListService, private router: Router, private route: ActivatedRoute) { }
+  highlight: boolean = false;
 
   ngOnInit() {
     this.lists = this.listService.getAllLists();    
+    this.route.paramMap.subscribe(params => {
+      if(params.get("new_list")) this.highlight = true 
+    })
   }
 
   remove(index: number): void{
@@ -25,6 +29,10 @@ export class ListComponent implements OnInit {
 
   goToList(index: number): void{
     this.router.navigate(['/list', index])
+  }
+
+  shouldHighlight(index: number): boolean{
+    return (index === this.lists.length - 1) && this.highlight
   }
 
 }
